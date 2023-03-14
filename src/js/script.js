@@ -3,64 +3,43 @@
 
 /* Passo 1 */
 const botoesCarrossel = document.querySelectorAll('.botao');
-//console.log(botoesCarrossel);
+const imagens = document.querySelectorAll('.imagem');
 
 
 /* Passo 2 */
-botoesCarrossel.forEach((botao) => {
-    //console.log(botao);
+botoesCarrossel.forEach((botao, indice) => {
     botao.addEventListener('click', () => {
-        //console.log('Clicou no botão');
         /* Passo 3 */
-        const botaoSelecionado = document.querySelector('.selecionado');
-        // console.log(botaoSelecionado.classList);
-        botaoSelecionado.classList.remove('selecionado');
+        desativarBotaoSelecionado();
         /* Passo 4 */
-        botao.classList.add('selecionado');
+        selecionarBotaoCarrossel(botao);
         /* Passo 5 */
-        const 
+        esconderImagemAtiva();
+        /* Passo 6 */
+        mostrarImagemDeFundo(indice);
     });
 });
 
 
 
-// const botao1 = document.getElementById('botao1');
-// //console.log(botao1);
-// botao1.addEventListener('click', () => {
-//     //console.log('clicou no botão 1');
-// });
+/*Functions*/
+function mostrarImagemDeFundo(indice) {
+    imagens[indice].classList.add('ativa');
+}
 
+function selecionarBotaoCarrossel(botao) {
+    botao.classList.add('selecionado');
+}
 
+function esconderImagemAtiva() {
+    const imagemAtiva = document.querySelector('.ativa');
+    imagemAtiva.classList.remove('ativa');
+}
 
-
-
-
-
-
-
-/* Passo 6 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function desativarBotaoSelecionado() {
+    const botaoSelecionado = document.querySelector('.selecionado');
+    botaoSelecionado.classList.remove('selecionado');
+}
 
 
 
